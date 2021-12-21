@@ -4,7 +4,7 @@
   Give it a key of name with the value being your name, and another key of age with the value being your age.
 */
 
-//Code here
+let me = {name: "Gino", age: 22}
 
 
 
@@ -15,21 +15,26 @@
 //name (a string), color (a string), age (a number),
 //and goodBoy/goodGirl (a boolean).
 
-//Code here
+let dog = {
+  name: "Clifford",
+  color: "Red",
+  age: 10,
+  goodBoy: true
+}
 
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
-//Code here
+console.log(dog.name)
 
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
-//Code here
+console.log(dog.color)
 
 
 
@@ -39,14 +44,25 @@
   Have the values to those keys be strings that are equal to your favorite thing in that category.
 */
 
-//Code here
+let favoriteThings = {
+
+  band: "Imagine Dragons",
+  food: "Burger",
+  book: "Rich Dad Poor Dad",
+  movie: "Spiderman No Way Home",
+  holiday: "Thanksgiving"
+
+}
 
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
-//Code here
+favoriteThings.car = "Lamborghini"
+favoriteThings.show = "Breaking Bad"
+
+console.log(favoriteThings)
 
 
 /*
@@ -54,8 +70,10 @@
   and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
 */
 
-//Code here
+favoriteThings.food = "Chicken Nuggets"
+favoriteThings.book = "Harry Potter"
 
+console.log(favoriteThings)
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
@@ -72,7 +90,8 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
+let {color, make, model, year} = carDetails
+console.log(color)
 
 
 
@@ -85,7 +104,8 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
+  
+  let {title, firstName, lastName} = obj
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -104,7 +124,12 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+
+let totalPopulation = (obj) => {
+  let {utah, california, texas, arizona} = obj
+
+  return utah + california + texas + arizona
+}
 
 
 
@@ -118,7 +143,12 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+let ingredients = (obj) => {
+  let arr = []
+  let {carb, fat, protein} = obj
+  arr.push(carb, fat, protein)
+  return arr
+}
 
 
 
@@ -140,7 +170,8 @@ var user = {
   Make that change without modifying the original object code above.
 */
 
-//Code Here
+user.name = "Bryan G. Smith"
+user.email = "bryan.smith@devmounta.in"
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -148,7 +179,7 @@ var user = {
   Using the user object above, delete the users age off of the object.
 */
 
-//Code Here
+delete user.age
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
@@ -158,7 +189,15 @@ var user = {
   Print the name of your cat instance using dot notation.
 */
 
-//Code here
+class Cat {
+  constructor(name, age, color) {
+    this.name = name
+    this.age = age
+    this.color = color
+  }
+}
+
+let newCat = new Cat("Tom", 50, "yellow")
 
 
 
@@ -170,7 +209,19 @@ var user = {
   Call the castSpell function on the instance of your wizard.
 */
 
-//Code here
+class Wizard {
+  constructor(name, age, favoriteSpell) {
+    this.name = name
+    this.age = age
+    this.favoriteSpell = favoriteSpell
+  }
+
+  castSpell = () => {
+    console.log(`${this.name} has cast ${this.favoriteSpell}`)
+  }
+}
+
+let wizard = new Wizard("Harry", 16, "Adavakedavra")
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -195,7 +246,29 @@ var user = {
     to be newPrice.
 */
 
-//Code Here
+class Phone {
+
+  
+  constructor(brand, model, storage, color, price, sold) {
+    this.brand = brand
+    this.model = model
+    this.color = color
+    this.price = price
+    
+  }
+
+  sold = false
+
+  sell = () => {
+    sold = true
+    console.log(`${this.brand} and ${model} has been sold.`)
+  }
+
+  changePrice = (newPrice) => {
+    this.price = newPrice
+  }
+  
+}
 
   
 /*
@@ -208,7 +281,9 @@ var user = {
     - price: number
 */
 
-//Code Here
+let phone1 = new Phone("Apple", "Iphone 13", 500, "black", "$1000")
+let phone2 = new Phone("Samsung", "Galazxy", 500, "black", "$1000")
+let phone3 = new Phone("Huawei", "One Plus", 500, "black", "$1000")
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -217,7 +292,8 @@ var user = {
   Then console.log that object to see the price change
 */ 
 
-//Code Here 
+phone1.changePrice("$600")
+console.log(phone1)
 
 
 /*
@@ -226,7 +302,8 @@ var user = {
   Print the value of that phone's sell property to make sure it's been changed to true
 */
 
-//Code Here 
+phone2.sell() 
+console.log(phone2.sell)
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
