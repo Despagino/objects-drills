@@ -246,29 +246,29 @@ let wizard = new Wizard("Harry", 16, "Adavakedavra")
     to be newPrice.
 */
 
-class Phone {
+// class Phone {
 
   
-  constructor(brand, model, storage, color, price, sold) {
-    this.brand = brand
-    this.model = model
-    this.color = color
-    this.price = price
+//   constructor(brand, model, storage, color, price, sold) {
+//     this.brand = brand
+//     this.model = model
+//     this.color = color
+//     this.price = price
     
-  }
+//   }
 
-  sold = false
+//   sold = false
 
-  sell = () => {
-    sold = true
-    console.log(`${this.brand} and ${model} has been sold.`)
-  }
+//   sell = () => {
+//     sold = true
+//     console.log(`${this.brand} and ${model} has been sold.`)
+//   }
 
-  changePrice = (newPrice) => {
-    this.price = newPrice
-  }
+//   changePrice = (newPrice) => {
+//     this.price = newPrice
+//   }
   
-}
+// }
 
   
 /*
@@ -281,9 +281,9 @@ class Phone {
     - price: number
 */
 
-let phone1 = new Phone("Apple", "Iphone 13", 500, "black", "$1000")
-let phone2 = new Phone("Samsung", "Galazxy", 500, "black", "$1000")
-let phone3 = new Phone("Huawei", "One Plus", 500, "black", "$1000")
+// let phone1 = new Phone("Apple", "Iphone 13", 500, "black", "$1000")
+// let phone2 = new Phone("Samsung", "Galazxy", 500, "black", "$1000")
+// let phone3 = new Phone("Huawei", "One Plus", 500, "black", "$1000")
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -292,8 +292,8 @@ let phone3 = new Phone("Huawei", "One Plus", 500, "black", "$1000")
   Then console.log that object to see the price change
 */ 
 
-phone1.changePrice("$600")
-console.log(phone1)
+// phone1.changePrice("$600")
+// console.log(phone1)
 
 
 /*
@@ -302,8 +302,8 @@ console.log(phone1)
   Print the value of that phone's sell property to make sure it's been changed to true
 */
 
-phone2.sell() 
-console.log(phone2.sell)
+// phone2.sell() 
+// console.log(phone2.sell)
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
@@ -322,7 +322,7 @@ const colors = {
 }
 //do not edit this object
 
-//Code Here 
+const colorsCopy = {...colors}
 
 
 
@@ -349,8 +349,9 @@ const shippingInfo = {
   zipCode: 85004,
 }
 //do not edit the objects above
+// let newArray = {...contactInfo, ...shippingInfo}
 
-//Code Here
+// console.log(newArray)
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -368,14 +369,25 @@ const shippingInfo = {
   And finally, print the value of the mileage.
 */
 
-//Code Here 
+class Vehicle {
+  constructor(capacity, color, mileage) {
+    this.capacity = capacity
+    this.color = color
+    this.mileage = mileage
+  }
+
+  move = (miles) => {
+    this.mileage += miles
+    console.log(this.mileage)
+  }
+}
 
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
-//Code Here
+let myFirstVehicle = new Vehicle(6, "Black", 1000)
 
 
 /* 
@@ -386,17 +398,26 @@ const shippingInfo = {
   new ones: make and isCool. (Hint: don't forget to call the super function)
 */
 
-//Code Here
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool) {
+    super (capacity, color, mileage)
+    this.make = make
+    this.isCool = isCool
+  }
+
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
-//Code Here 
+let myFirstMotorcycle = new Motorcycle(100, "red", 1000, "Hyundai", true)
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
+
+myFirstMotorcycle.move(200)
 
 /*
   Let's make another class based off of Vehicle. 
@@ -414,7 +435,28 @@ const shippingInfo = {
   This function should set isSeaworthy to be true
 */
 
-//Code Here
+class Boat extends Vehicle {
+  
+  constructor(capacity, color, mileage, name, type, isSeaWorthy) {
+    super (capacity, color, mileage)
+    this.name = name
+    this.type = type
+    this.isSeaWorthy = isSeaWorthy
+
+  }
+
+  checkSeaWorthiness = () => {
+    if (this.isSeaWorthy) {
+      console.log(`The ${color} ${this.type} ${this.name} is seaWorthy`)
+    } else {
+      console.log(`You need to get your ${this.type} in shape!`)
+    }
+  }
+
+  performMaintenance = () => {
+    this.isSeaWorthy = true
+  }
+}
 
 
 /*
@@ -422,22 +464,23 @@ const shippingInfo = {
   properties except isSeaworthy -- make that one false. Call your variable myFirstBoat.
 */
 
-//Code Here
+let myFirstBoat = new Boat(45, "Red", 1000, "Stephanie", "Yacht", false)
+
 
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
-//Code Here
+myFirstBoat.checkSeaWorthiness()
 
 /*
   Now run the performMaintenance method on your boat
 */
 
-//Code Here 
+myFirstBoat.performMaintenance()
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
-//Code Here
+myFirstBoat.checkSeaWorthiness()
