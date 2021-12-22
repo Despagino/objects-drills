@@ -103,7 +103,14 @@ console.log(color)
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+let sampleString = {
+  title: "Harry Potter",
+  firstName: "Gino",
+  lastName: "Tasis"
+}
+
+
+function greeting ( obj ) {
   
   let {title, firstName, lastName} = obj
   
@@ -113,7 +120,7 @@ function greeting( obj ) {
 }
 
 
-
+console.log(greeting(sampleString))
 //////////////////////////// PROBLEM 8 ////////////////////////////
 
 /*
